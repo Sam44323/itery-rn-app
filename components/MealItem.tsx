@@ -4,15 +4,23 @@ import { View, Text, Pressable, StyleSheet, Image } from "react-native";
 interface MealItemProps {
   title: string;
   imageUrl: string;
+  duration: number;
+  complexity: string;
+  affordability: string;
 }
 
-const MealItem: React.FC<MealItemProps> = ({ title, imageUrl }) => {
+const MealItem: React.FC<MealItemProps> = (props) => {
   return (
     <View>
       <Pressable>
         <View>
-          <Image source={{ uri: imageUrl }} style={styles.image} />
-          <Text style={styles.title}>{title}</Text>
+          <Image source={{ uri: props.imageUrl }} style={styles.image} />
+          <Text style={styles.title}>{props.title}</Text>
+        </View>
+        <View>
+          <Text>{props.duration}</Text>
+          <Text>{props.complexity.toUpperCase()}</Text>
+          <Text>{props.affordability.toUpperCase()}</Text>
         </View>
       </Pressable>
     </View>
