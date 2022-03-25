@@ -2,10 +2,10 @@ import { MEALS } from "../data/dummy-data";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const MealsOverviewScreen: React.FC = () => {
+const MealsOverviewScreen: React.FC = ({ route }: any) => {
   return (
     <View style={styles.container}>
-      <Text>Meals overview screen!</Text>
+      <Text>Meals overview screen! - {route.params.categoryId}</Text>
     </View>
   );
 };

@@ -9,7 +9,11 @@ const CategoriesScreens: React.FC = ({ navigation }: any) => {
       <CategoryGridTile
         title={itemData.item.title}
         color={itemData.item.color}
-        navigator={() => navigation.navigate("MealsOverview")}
+        navigator={() =>
+          navigation.navigate("MealsOverview", {
+            categoryId: itemData.item.id,
+          })
+        }
       />
     );
   };
