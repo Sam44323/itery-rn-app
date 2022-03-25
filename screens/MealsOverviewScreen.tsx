@@ -8,7 +8,7 @@ const MealsOverviewScreen: React.FC = ({ route, navigation }: any) => {
     (mealItem) => mealItem.categoryIds.indexOf(route.params.categoryId) >= 0
   );
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     // example of setting the options for the screen from inside
     navigation.setOptions({
       title: CATEGORIES.find((cat) => cat.id === route.params.categoryId)!
