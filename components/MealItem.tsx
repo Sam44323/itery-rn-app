@@ -7,8 +7,10 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 interface MealItemProps {
+  id: string;
   title: string;
   imageUrl: string;
   duration: number;
@@ -17,10 +19,13 @@ interface MealItemProps {
 }
 
 const MealItem: React.FC<MealItemProps> = (props) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.mealItem}>
       <Pressable
         android_ripple={{ color: "#ccc" }}
+        onPress={() => navigation.navigate("MealDetails", { mealId: props.id })}
         style={({ pressed }) => (pressed ? [styles.buttonPressed] : null)}
       >
         <View style={styles.innerContainer}>
