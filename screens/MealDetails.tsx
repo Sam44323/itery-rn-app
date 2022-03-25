@@ -1,8 +1,10 @@
 import React from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
 import { MEALS } from "../data/dummy-data";
+
 import MealDetail from "../components/MealDetail";
 import Subtitle from "../components/MealDetail/Subtitle";
+import List from "../components/MealDetail/List";
 
 const MealDetails: React.FC = ({ route }: any) => {
   const meal = MEALS.find((meal) => meal.id === route.params.mealId)!;
@@ -13,13 +15,9 @@ const MealDetails: React.FC = ({ route }: any) => {
       <Text style={styles.title}>{meal.title}</Text>
       <MealDetail {...meal} textStyle={styles.detailText} />
       <Subtitle>Ingredients</Subtitle>
-      {meal.ingredients.map((item, index) => (
-        <Text key={index}>{item}</Text>
-      ))}
+      <List list={meal.ingredients} />
       <Subtitle>Steps</Subtitle>
-      {meal.steps.map((item, index) => (
-        <Text key={index}>{item}</Text>
-      ))}
+      <List list={meal.steps} />
     </View>
   );
 };
