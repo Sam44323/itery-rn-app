@@ -11,16 +11,20 @@ interface MealItemProps {
 
 const MealItem: React.FC<MealItemProps> = (props) => {
   return (
-    <View>
+    <View style={styles.mealItem}>
       <Pressable>
         <View>
           <Image source={{ uri: props.imageUrl }} style={styles.image} />
           <Text style={styles.title}>{props.title}</Text>
         </View>
-        <View>
-          <Text>{props.duration}</Text>
-          <Text>{props.complexity.toUpperCase()}</Text>
-          <Text>{props.affordability.toUpperCase()}</Text>
+        <View style={styles.details}>
+          <Text style={styles.detailItem}>{props.duration}m</Text>
+          <Text style={styles.detailItem}>
+            {props.complexity.toUpperCase()}
+          </Text>
+          <Text style={styles.detailItem}>
+            {props.affordability.toUpperCase()}
+          </Text>
         </View>
       </Pressable>
     </View>
@@ -38,5 +42,22 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 18,
+    margin: 8,
+  },
+  mealItem: {
+    margin: 16,
+    borderRadius: 8,
+    overflow: "hidden",
+    backgroundColor: "white",
+  },
+  details: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 8,
+  },
+  detailItem: {
+    marginHorizontal: 4,
+    fontSize: 12,
   },
 });
