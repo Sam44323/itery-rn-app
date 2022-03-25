@@ -17,6 +17,7 @@ const MealDetails: React.FC = ({ route, navigation }: any) => {
       headerRight: () => (
         <IconButton clickHandler={clickHandler} icon="star" color="white" />
       ),
+      title: "About The Meal",
     });
   }, []);
 
