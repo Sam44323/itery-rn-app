@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     padding: 6,
     borderBottomColor: "#e2b497",
     borderBottomWidth: 1,
-    marginHorizontal: 24,
+    marginHorizontal: 12,
     marginVertical: 4,
   },
   subtitle: {

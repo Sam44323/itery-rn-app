@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, ScrollView } from "react-native";
 import { MEALS } from "../data/dummy-data";
 
 import MealDetail from "../components/MealDetail";
@@ -10,15 +10,19 @@ const MealDetails: React.FC = ({ route }: any) => {
   const meal = MEALS.find((meal) => meal.id === route.params.mealId)!;
 
   return (
-    <View>
+    <ScrollView>
       <Image style={styles.image} source={{ uri: meal.imageUrl }} />
       <Text style={styles.title}>{meal.title}</Text>
       <MealDetail {...meal} textStyle={styles.detailText} />
-      <Subtitle>Ingredients</Subtitle>
-      <List list={meal.ingredients} />
-      <Subtitle>Steps</Subtitle>
-      <List list={meal.steps} />
-    </View>
+      <View style={styles.listOuterContainer}>
+        <View style={styles.listContainer}>
+          <Subtitle>Ingredients</Subtitle>
+          <List list={meal.ingredients} />
+          <Subtitle>Steps</Subtitle>
+          <List list={meal.steps} />
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -39,17 +43,10 @@ const styles = StyleSheet.create({
   detailText: {
     color: "white",
   },
-  subtitleContainer: {
-    padding: 6,
-    borderBottomColor: "#e2b497",
-    borderBottomWidth: 1,
-    marginHorizontal: 24,
-    marginVertical: 4,
+  listOuterContainer: {
+    alignItems: "center",
   },
-  subtitle: {
-    color: "#e2b497",
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+  listContainer: {
+    width: "80%",
   },
 });
