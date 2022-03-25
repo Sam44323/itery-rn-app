@@ -8,16 +8,53 @@ const MealDetails: React.FC = ({ route }: any) => {
 
   return (
     <View>
-      <Image source={{ uri: meal.imageUrl }} />
-      <Text>{meal.title}</Text>
-      <MealDetail {...meal} />
-      <Text>Ingredients</Text>
+      <Image style={styles.image} source={{ uri: meal.imageUrl }} />
+      <Text style={styles.title}>{meal.title}</Text>
+      <MealDetail {...meal} textStyle={styles.detailText} />
+      <View style={styles.subtitleContainer}>
+        <Text style={styles.subtitle}>Ingredients</Text>
+      </View>
       {meal.ingredients.map((item, index) => (
         <Text key={index}>{item}</Text>
       ))}
-      <Text>Steps</Text>
+      <View style={styles.subtitleContainer}>
+        <Text style={styles.subtitle}>Steps</Text>
+      </View>
+      {meal.steps.map((item, index) => (
+        <Text key={index}>{item}</Text>
+      ))}
     </View>
   );
 };
 
 export default MealDetails;
+
+const styles = StyleSheet.create({
+  image: {
+    width: "100%",
+    height: 350,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 24,
+    margin: 8,
+    textAlign: "center",
+    color: "white",
+  },
+  detailText: {
+    color: "white",
+  },
+  subtitleContainer: {
+    padding: 6,
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    marginHorizontal: 24,
+    marginVertical: 4,
+  },
+  subtitle: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});

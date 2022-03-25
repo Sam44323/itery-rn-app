@@ -5,14 +5,22 @@ interface MealDetailProps {
   duration: number;
   complexity: string;
   affordability: string;
+  style?: Object;
+  textStyle?: Object;
 }
 
 const MealDetail: React.FC<MealDetailProps> = (props) => {
   return (
-    <View style={styles.details}>
-      <Text style={styles.detailItem}>{props.duration}m</Text>
-      <Text style={styles.detailItem}>{props.complexity.toUpperCase()}</Text>
-      <Text style={styles.detailItem}>{props.affordability.toUpperCase()}</Text>
+    <View style={[styles.details, props.style]}>
+      <Text style={[styles.detailItem, props.textStyle]}>
+        {props.duration}m
+      </Text>
+      <Text style={[styles.detailItem, props.textStyle]}>
+        {props.complexity.toUpperCase()}
+      </Text>
+      <Text style={[styles.detailItem, props.textStyle]}>
+        {props.affordability.toUpperCase()}
+      </Text>
     </View>
   );
 };
