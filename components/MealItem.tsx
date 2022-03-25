@@ -19,7 +19,10 @@ interface MealItemProps {
 const MealItem: React.FC<MealItemProps> = (props) => {
   return (
     <View style={styles.mealItem}>
-      <Pressable>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) => (pressed ? [styles.buttonPressed] : null)}
+      >
         <View style={styles.innerContainer}>
           <View>
             <Image source={{ uri: props.imageUrl }} style={styles.image} />
@@ -77,5 +80,8 @@ const styles = StyleSheet.create({
   detailItem: {
     marginHorizontal: 4,
     fontSize: 12,
+  },
+  buttonPressed: {
+    opacity: 0.75,
   },
 });
