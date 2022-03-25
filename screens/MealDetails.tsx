@@ -10,7 +10,7 @@ const MealDetails: React.FC = ({ route }: any) => {
   const meal = MEALS.find((meal) => meal.id === route.params.mealId)!;
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.rootContainer}>
       <Image style={styles.image} source={{ uri: meal.imageUrl }} />
       <Text style={styles.title}>{meal.title}</Text>
       <MealDetail {...meal} textStyle={styles.detailText} />
@@ -29,6 +29,9 @@ const MealDetails: React.FC = ({ route }: any) => {
 export default MealDetails;
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    marginBottom: 32,
+  },
   image: {
     width: "100%",
     height: 350,
