@@ -20,18 +20,20 @@ const MealItem: React.FC<MealItemProps> = (props) => {
   return (
     <View style={styles.mealItem}>
       <Pressable>
-        <View>
-          <Image source={{ uri: props.imageUrl }} style={styles.image} />
-          <Text style={styles.title}>{props.title}</Text>
-        </View>
-        <View style={styles.details}>
-          <Text style={styles.detailItem}>{props.duration}m</Text>
-          <Text style={styles.detailItem}>
-            {props.complexity.toUpperCase()}
-          </Text>
-          <Text style={styles.detailItem}>
-            {props.affordability.toUpperCase()}
-          </Text>
+        <View style={styles.innerContainer}>
+          <View>
+            <Image source={{ uri: props.imageUrl }} style={styles.image} />
+            <Text style={styles.title}>{props.title}</Text>
+          </View>
+          <View style={styles.details}>
+            <Text style={styles.detailItem}>{props.duration}m</Text>
+            <Text style={styles.detailItem}>
+              {props.complexity.toUpperCase()}
+            </Text>
+            <Text style={styles.detailItem}>
+              {props.affordability.toUpperCase()}
+            </Text>
+          </View>
         </View>
       </Pressable>
     </View>
@@ -50,6 +52,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 18,
     margin: 8,
+  },
+  innerContainer: {
+    borderRadius: 8,
+    overflow: "hidden",
   },
   mealItem: {
     margin: 16,
