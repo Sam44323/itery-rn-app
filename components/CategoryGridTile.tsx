@@ -12,8 +12,13 @@ const CategoryGridTile: React.FC<CategoryGridTileProps> = ({
 }) => {
   return (
     <View style={styles.gridItem}>
-      <Pressable style={styles.button} android_ripple={{ color: "#ccc" }}>
-        <View style={styles.innerContainer}>
+      <Pressable
+        android_ripple={{ color: "#ccc" }}
+        style={({ pressed }) =>
+          pressed ? [styles.button, styles.buttonPressed] : [styles.button]
+        }
+      >
+        <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
@@ -39,6 +44,9 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
+  },
+  buttonPressed: {
+    opacity: 0.25,
   },
   innerContainer: {
     flex: 1,
