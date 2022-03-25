@@ -4,11 +4,13 @@ import { Pressable, View, Text, StyleSheet, Platform } from "react-native";
 interface CategoryGridTileProps {
   title: string;
   color: string;
+  navigator: () => void;
 }
 
 const CategoryGridTile: React.FC<CategoryGridTileProps> = ({
   title,
   color,
+  navigator,
 }) => {
   return (
     <View style={styles.gridItem}>
@@ -17,6 +19,7 @@ const CategoryGridTile: React.FC<CategoryGridTileProps> = ({
         style={({ pressed }) =>
           pressed ? [styles.button, styles.buttonPressed] : [styles.button]
         }
+        onPress={navigator}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>
