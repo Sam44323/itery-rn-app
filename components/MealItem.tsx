@@ -18,6 +18,8 @@ interface MealItemProps {
   affordability: string;
 }
 
+import MealDetail from "./MealDetail";
+
 const MealItem: React.FC<MealItemProps> = (props) => {
   const navigation = useNavigation();
 
@@ -33,15 +35,7 @@ const MealItem: React.FC<MealItemProps> = (props) => {
             <Image source={{ uri: props.imageUrl }} style={styles.image} />
             <Text style={styles.title}>{props.title}</Text>
           </View>
-          <View style={styles.details}>
-            <Text style={styles.detailItem}>{props.duration}m</Text>
-            <Text style={styles.detailItem}>
-              {props.complexity.toUpperCase()}
-            </Text>
-            <Text style={styles.detailItem}>
-              {props.affordability.toUpperCase()}
-            </Text>
-          </View>
+          <MealDetail {...props} />
         </View>
       </Pressable>
     </View>
