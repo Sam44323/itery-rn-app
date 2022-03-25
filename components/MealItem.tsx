@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, Pressable, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Image,
+} from "react-native";
 
 interface MealItemProps {
   title: string;
@@ -54,6 +61,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.35,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 16,
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   details: {
     flexDirection: "row",
