@@ -1,4 +1,4 @@
-# Itery-App
+# Itery_App
 
 **An itery app using expo and react-native**
 
